@@ -9,5 +9,4 @@ def is_primiitve(number,mod):
 		  if number**(prime**exp)%mod == 1:
 		  	return False
 	return True
-	
-print is_primiitve(5,65537)
+
