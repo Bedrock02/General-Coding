@@ -11,4 +11,4 @@ def numbersWithPhiValue(number,maxSearchNumber):
 	return answer
 
 
-
+print numbersWithPhiValue(22,200)
