@@ -1,14 +1,26 @@
 #this algorithm finds one factor of a given number
 from gcd import *
-def f(x):
-	return (x*x+1)
+def f(x,n):
+	return (pow(x,2,n)+1)%n
+def Rho(n):	
+	factors = {}
+	i = 1
+	x = 1
+	d = 1
+	
+	while d == 1:
+		#Calculate x[i]
+		factors[i] = f(x,n)
+		#Calculate x[i+1]
+		factors[i+1] = f(factors[i],n)
+		
+		#find the gcd
+		d = gcd(abs(factors[(i+1)/2] - factors[i+1]),n)
 
-def Rho(n):
-	fList = [f(2)]
-	i = 2
-	while(i<n):
-		fList.append(f(fList[-1]))
-		factor = gcd(fList	[(2*(i/2))-1]-fList[(i/2)-1],n)
-		if(i%2==0 and factor > 1):
-			return factor
-		i=i+1
+		#if not relatively prime return d
+		if d > 1:
+			return d
+		#continue iteration
+		else:
+			x = factors[i+1]
+			i+=2
