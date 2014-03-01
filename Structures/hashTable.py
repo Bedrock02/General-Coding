@@ -30,8 +30,3 @@ class listHash(object):
 	def remove(self,key):
 		value_list.pop[self.key_list.index(key)]
 		key_list.remove(key)
-
-implemHash = listHash()
-implemHash.set("Loser","Miriam")
-implemHash.set("Loser","Steven")
-
